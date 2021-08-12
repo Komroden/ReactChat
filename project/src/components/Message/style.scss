@@ -1,0 +1,19 @@
+.message-header{
+    text-align: center;
+}
+.message{
+    text-shadow:
+    1px 1px 1px silver,
+    -1px 1px 1px silver;
+  color: black;
+  transition: all .5s;
+  &:hover{
+    text-shadow:
+    -1px -1px 1px silver,
+    1px -1px 1px silver;
+    color: black;
+  }
+}
+.discipline{
+    color: rgb(82, 90, 163);
+}
