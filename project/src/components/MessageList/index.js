@@ -1,40 +1,30 @@
 import React,{useState,useEffect} from 'react';
+import './style.scss';
+import {AddMessage} from "../../hooks/AddMessage";
 
 
 export function MessageList() {
     const [textInput, setTextInput] = useState('');
-    const [messages, setMessages] = useState([ 
-        
-    ]);
-    const addMessage = (author, text) => {
-        setMessages([ 
-                   ...messages, 
-                   { 
-                     author, 
-                     text, 
-                   } 
-                 ]); 
-                 
-       }
-       const clear = () => {
-        setMessages([]); 
-       }
+    const [messages, {plusMessage,clear,}] = AddMessage();
+    
+       
        const handlePress = (text) => {
         setTextInput(text)
       }
-      useEffect(() => { 
-        if (messages.slice(-1)?.author !== 'Bot') {
-          addMessage('Bot', "Hello!"); 
+      useEffect(() => {
+        const lastMessage = messages?.slice(-1); 
+        if (lastMessage?.length && lastMessage[0].author !== 'Bot') {
+         setTimeout(plusMessage,1500,'Bot',"Hello!") 
   }
         }, [messages])
     return  (
-        <div>  
+        <div className = "form">  
          {messages.map((item, index) => (
-            <div key={index}>{item.author} - {item.text}</div>
+            <div className = "textMessage" key={index}>{item.author} - {item.text}</div>
           ))}
-          <input value={textInput} onChange={(event) => {handlePress(event.target.value)}}/>
-          <button onClick={()=>addMessage('User', textInput)}>Send</button>
-          <button onClick={()=>clear()}>Clear</button>
+          <input className = "inputText" value={textInput} onChange={(event) => {handlePress(event.target.value)}}/>
+          <button className = "button" onClick={()=>plusMessage('User', textInput)}>Send</button>
+          <button className = "button" onClick={()=>clear()}>Clear</button>
         </div>    
         );
 }
