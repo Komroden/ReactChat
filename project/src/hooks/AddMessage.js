@@ -1,5 +1,6 @@
-import {useState} from "react";
+import {useState,} from "react";
 export const AddMessage=()=>{
+  const [textInput, setTextInput] = useState('');
     const [messages, setMessages] = useState([ 
         
     ]);
@@ -17,12 +18,16 @@ export const AddMessage=()=>{
       const clear = () => {
         setMessages([]); 
        }
-
+       const handlePress = (text) => {
+        setTextInput(text)
+      }
+      
       return [
-        messages,
+        messages,textInput,
         {
           plusMessage,
-          clear
+          clear,
+          handlePress
         }
       ]
     };
