@@ -1,7 +1,10 @@
 import React from 'react';
+import { Button } from "@material-ui/core";
 import './style.scss';
-export const Button=({text,func})=>{
-    return  (
-          <button className="button" onClick={func}>{text}</button>
-      );
+export const Buttons = ({ text, func }) => {
+
+    return (
+        <Button color="primary" onClick={func}>{text}</Button>
+
+    );
 }
