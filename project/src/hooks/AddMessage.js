@@ -15,6 +15,7 @@ export const AddMessage = () => {
       ]);
 
     })
+
   }
   const clear = () => {
     setMessages([]);

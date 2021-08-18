@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, number } from 'prop-types';
 export function ChatItem(props) {
     return (
         <div>
@@ -8,3 +9,4 @@ export function ChatItem(props) {
             ))}
         </div>)
 }
+ChatItem.propTypes = { id: number, name: string }
