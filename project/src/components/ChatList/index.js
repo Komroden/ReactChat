@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useParams } from 'react';
 import { ChatItem } from "../ChatItem"
 import { ThemeProvider } from '@material-ui/core/styles';
+
 const theme = {
     palette: {
         primary: {
@@ -12,7 +13,8 @@ const theme = {
     },
 };
 
-export const ChatList = () => {
+export const ChatList = (props) => {
+
 
     const chats = [
         {
@@ -27,8 +29,10 @@ export const ChatList = () => {
 
 
     return (
+
         <ThemeProvider theme={theme}>
-            <ChatItem chats={chats}></ChatItem>
+
+            <ChatItem chats={chats} />
         </ThemeProvider>
 
     )
