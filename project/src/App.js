@@ -24,9 +24,7 @@ export const App = () => {
           <Route exact path="/profile">
             <Profile />
           </Route>
-          <Route path="/posts">
-            <Posts />
-          </Route>
+
           <Route>
             <h3>Page not found</h3>
           </Route>

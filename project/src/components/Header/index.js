@@ -54,17 +54,7 @@ export const Header = (props) => {
             >
                 Chats
             </Link>
-            <Link
-                component={RouterLink}
-                color="inherit"
-                noWrap
-                key=""
-                variant="body2"
-                to="/posts"
-                className={classes.toolbarLink}
-            >
-                Posts
-            </Link>
+
         </Toolbar>
     );
 }

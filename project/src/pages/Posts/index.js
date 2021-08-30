@@ -25,8 +25,6 @@ export const Posts = (props) => {
             .from({
                 length: 2,
             })
-            .map(createPost);
-
         setPosts(newPosts);
 
     }, []);

@@ -1,4 +1,6 @@
-export const TOGGLE_SHOWNAME = 'TOGGLE_SHOWNAME'
-export const toggleShowName = {
-    type: TOGGLE_SHOWNAME
-}
+
+export const CHANGE_NAME = "PROFILE::CHANGE_NAME";
+export const changeName = (newName) => ({
+    type: CHANGE_NAME,
+    payload: newName,
+});
