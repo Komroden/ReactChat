@@ -8,7 +8,8 @@ import { Input } from "../Input"
 
 
 
-export function MessageList() {
+export function MessageList({chatId,message}) {
+
   const [messages, textInput, { plusMessage, clear, handlePress }] = AddMessage();
 
 
@@ -27,6 +28,8 @@ export function MessageList() {
     </div>
   );
 }
+
+
 
 
 
