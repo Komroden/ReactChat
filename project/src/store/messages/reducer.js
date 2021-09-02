@@ -1,39 +1,29 @@
-import {ADD_CARD} from "./actions";
+import {ADD_MESSAGE} from "./actions";
 
 
 const initialState = {
-  cards: {},
+  messages: {},
 }
 
-/**
- * @param {object} state
- * @param {object} state.cards
- *
- * @param {object} action
- * @param {string} action.type
- * @param {object} action.payload
- * @param {string} action.payload.id
- * @param {string} action.payload.collectionId
- * @param {string} action.payload.content
- * */
-export const cardReducer = (state = initialState, action) => {
+
+export const messageReducer = (state = initialState, action) => {
   
   switch (action.type) {
-    case ADD_CARD: {
-      const {collectionId} = action.payload;
+    case ADD_MESSAGE: {
+      const {chatId} = action.payload;
 
-      if (state.cards.hasOwnProperty(collectionId)) {
-        state.cards[collectionId] = [
-          ...state.cards[collectionId],
+      if (state.messages.hasOwnProperty(chatId)) {
+        state.messages[chatId] = [
+          ...state.messages[chatId],
           action.payload,
         ]
       } else {
-        state.cards[collectionId] = [action.payload];
+        state.messages[chatId] = [action.payload];
       }
 
       return  {
-        cards: {
-          ...state.cards,
+        messages: {
+          ...state.messages,
         }
       }
     }

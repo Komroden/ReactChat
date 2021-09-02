@@ -1,26 +1,26 @@
-import {ADD_COLLECTION, REMOVE_COLLECTION} from "./index";
+import {ADD_CHAT, REMOVE_CHAT} from "./index";
 
 
 const initialState = {
-  collections: [],
+  chats: [],
 }
 
 const filterById = (targetId) => ({id}) => targetId !== id;
 
-export const collectionsReducer = (state= initialState, action) => {
+export const chatsReducer = (state= initialState, action) => {
   switch (action.type) {
-    case ADD_COLLECTION: {
+    case ADD_CHAT: {
       return  {
-        collections: [
-          ...state.collections,
+        chats: [
+          ...state.chats,
           action.payload,
         ],
       }
     }
-    case REMOVE_COLLECTION: {
+    case REMOVE_CHAT: {
 
       return  {
-        collections: state.collections.filter(filterById(action.payload)),
+        chats: state.chats.filter(filterById(action.payload)),
       }
     }
     default: {

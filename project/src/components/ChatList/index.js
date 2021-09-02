@@ -1,34 +1,32 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import {Link} from 'react-router-dom'
-import {collectionsConnect} from "../../connects/collections";
+import {chatsConnect} from "../../connects/chats";
 
 
-export const CollectionListRender = ({collections, removeCollection}) => {
-  return (
-    <div>
-      {
-        collections.map(({title, id}) => <Link to={`/cards/${id}`} key={id}>
-          <div>{title}</div>
-          <button onClick={(event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            removeCollection(id)
-          }}>x</button>
-        </Link>)
-      }
-    </div>
-  );
+export const ChatListRender = ({chats, removeChat}) => {
+    return (
+        <div>
+            {
+                chats.map(({title, id}) => <Link to={`/cards/${id}`} key={id}>
+                    <div>{title}</div>
+                    <button onClick={(event) => {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        removeChat(id)
+                    }}>x</button>
+                </Link>)
+            }
+        </div>
+    );
 };
 
-CollectionListRender.propTypes = {
-  collections: propTypes.arrayOf(propTypes.shape({
-    id: propTypes.string,
-    title: propTypes.string,
-  })),
-  removeCollection: propTypes.func,
+ChatListRender.propTypes = {
+    chats: propTypes.arrayOf(propTypes.shape({
+        id: propTypes.string,
+        title: propTypes.string,
+    })),
+    removeChat: propTypes.func,
 }
 
-export const CollectionList = collectionsConnect(CollectionListRender)
-
-
+export const ChatList = chatsConnect(ChatListRender)

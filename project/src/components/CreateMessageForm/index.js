@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import {TextField, Button} from '@material-ui/core';
 import {useSimpleForm} from "../../hooks/useSimpleForm";
-import {cardsConnect} from "../../connects/messages";
+import {messagesConnect} from "../../connects/messages";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,20 +14,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const CreateCardFormRender = ({collectionId, addCards}) => {
+export const CreateMessageFormRender = ({chatId, addMessages}) => {
   const classes = useStyles();
   const {setFieldValue, getFieldValue, resetForm} = useSimpleForm({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const card = {
-      collectionId,
+    const message = {
+      chatId,
       id: Date.now().toString(),
       content: getFieldValue('content')
     }
 
-    addCards(card);
+    addMessages(message);
 
     resetForm();
   }
@@ -45,8 +45,11 @@ export const CreateCardFormRender = ({collectionId, addCards}) => {
   );
 };
 
-CreateCardFormRender.propTypes  = {
-  collectionId: propTypes.string.isRequired,
+CreateMessageFormRender.propTypes  = {
+  chatId: propTypes.string.isRequired,
 }
 
-export const CreateCardForm = cardsConnect(CreateCardFormRender);
+export const CreateMessageForm = messagesConnect(CreateMessageFormRender);
+
+
+

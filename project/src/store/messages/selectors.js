@@ -1,8 +1,8 @@
-const getCards = (state) => state.cards.cards || {};
+const getMessages = (state) => state.messages.messages || {};
 
-const getCard = (state, collectionId) => getCards(state)[collectionId];
+const getMessage = (state, chatId) => getMessages(state)[chatId];
 
-export const cardsSelectors = {
-  getCards,
-  getCard
+export const messagesSelectors = {
+  getMessages,
+  getMessage
 }

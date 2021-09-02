@@ -1,16 +1,16 @@
   
 import React from 'react';
-import {CreateCardForm} from "../../components/CreateMessageForm";
+import {CreateMessageForm} from "../../components/CreateMessageForm";
 import {useParams} from "react-router-dom";
-import {CardList} from "../../components/MessageList";
+import {MessageList} from "../../components/MessageList";
 
 
-export const CardPage = (props) => {
-  const {collectionId} = useParams();
+export const MessagePage = (props) => {
+  const {chatId} = useParams();
   return (
     <div>
-      <CreateCardForm collectionId={collectionId}/>
-      <CardList collectionId={collectionId}/>
+      <CreateMessageForm chatId={chatId}/>
+      <MessageList chatId={chatId}/>
     </div>
   );
 };

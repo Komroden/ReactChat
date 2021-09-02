@@ -1,18 +1,14 @@
-export const ADD_COLLECTION = 'ADD_COLLECTION';
+export const ADD_CHAT = 'ADD_CHAT';
 
-export const REMOVE_COLLECTION = 'REMOVE_COLLECTION';
+export const REMOVE_CHAT = 'REMOVE_CHAT';
 
-/**
- * @param {object} collection
- * @param {string} collection.id
- * @param {string} collection.title
- * */
-export const createAddCollection = (collection) => ({
-  type: ADD_COLLECTION,
-  payload: collection,
+
+export const createAddChat = (chat) => ({
+  type: ADD_CHAT,
+  payload: chat,
 })
 
-export const createRemoveCollection = (collectionId) => ({
-  type: REMOVE_COLLECTION,
-  payload: collectionId,
+export const createRemoveChat = (chatId) => ({
+  type: REMOVE_CHAT,
+  payload: chatId,
 })

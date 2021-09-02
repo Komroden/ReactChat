@@ -1,5 +1,5 @@
-const getCollections = (state) => state.collections.collections || [];
+const getChats = (state) => state.chats.chats || [];
 
-export const collectionsSelectors = {
-  getCollections
+export const chatsSelectors = {
+  getChats
 }

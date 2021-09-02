@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {TextField, Button} from '@material-ui/core';
 import {useSimpleForm} from "../../hooks/useSimpleForm";
-import {collectionsConnect} from "../../connects/collections";
+import {chatsConnect} from "../../connects/chats";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,18 +13,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const CreateCollectionFormRender = ({addCollection}) => {
+export const CreateChatFormRender = ({addChat}) => {
   const classes = useStyles();
   const {setFieldValue, getFieldValue, resetForm} = useSimpleForm({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const collection = {
+    const Chat = {
       id: Date.now().toString(),
       title: getFieldValue('title')
     }
-    addCollection(collection)
+    addChat(Chat)
 
     resetForm();
   }
@@ -43,4 +43,4 @@ export const CreateCollectionFormRender = ({addCollection}) => {
   );
 };
 
-export const CreateCollectionForm = collectionsConnect(CreateCollectionFormRender);
+export const CreateChatForm = chatsConnect(CreateChatFormRender);

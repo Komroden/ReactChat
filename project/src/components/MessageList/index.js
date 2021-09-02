@@ -1,29 +1,34 @@
 import React from 'react';
 import propTypes from "prop-types";
-import {cardsConnect} from "../../connects/messages";
+import {messagesConnect} from "../../connects/messages";
 
 
-export const CardListRender = ({cards, ...rest}) => {
-  console.log(cards, rest);
+export const MessageListRender = ({messages, ...rest}) => {
+  console.log(messages, rest);
   return (
     <div>
       {
-        cards?.map(({content, id}) => <li key={id}>{content}</li>)
+        messages?.map(({content, id}) => <li key={id}>{content}</li>)
       }
     </div>
   );
 };
 
 
-CardListRender.propTypes = {
-  cards: propTypes.arrayOf(propTypes.shape({
+MessageListRender.propTypes = {
+  messages: propTypes.arrayOf(propTypes.shape({
     id: propTypes.string,
-    collectionId: propTypes.string,
+    chatId: propTypes.string,
     content: propTypes.string,
   }))
 }
 
-export const CardList = cardsConnect(CardListRender);
+export const MessageList = messagesConnect(MessageListRender);
+
+
+
+
+
 
 
 

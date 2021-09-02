@@ -1,13 +1,8 @@
-export const ADD_CARD = 'ADD_CARD';
+export const ADD_MESSAGE = 'ADD_MESSAGE';
 
 
-/**
- * @param {object} card
- * @param {string} card.id
- * @param {string} card.content
- * @param {string} card.collectionId
- * */
-export const createAddCard = (card) => ({
-  type: ADD_CARD,
-  payload: card
+
+export const createAddMessage = (message) => ({
+  type: ADD_MESSAGE,
+  payload: message
 })
