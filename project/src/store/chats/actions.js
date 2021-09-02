@@ -1,11 +1,18 @@
-export const ADD_CHAT = "CHATS::ADD_CHAT";
-export const REMOVE_CHAT = "CHATS::REMOVE_CHAT";
+export const ADD_COLLECTION = 'ADD_COLLECTION';
 
-export const addChat = (name) => ({
-    type: ADD_CHAT,
-    name,
-});
-export const removeChat = (id) => ({
-    type: REMOVE_CHAT,
-    id,
-});
+export const REMOVE_COLLECTION = 'REMOVE_COLLECTION';
+
+/**
+ * @param {object} collection
+ * @param {string} collection.id
+ * @param {string} collection.title
+ * */
+export const createAddCollection = (collection) => ({
+  type: ADD_COLLECTION,
+  payload: collection,
+})
+
+export const createRemoveCollection = (collectionId) => ({
+  type: REMOVE_COLLECTION,
+  payload: collectionId,
+})

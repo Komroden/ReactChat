@@ -1,7 +1,13 @@
-export const ADD_MESSAGE = 'MESSAGES::ADD_MESSAGE';
+export const ADD_CARD = 'ADD_CARD';
 
-export const addMessage = (chatId, message) => ({
-    type: ADD_MESSAGE,
-    chatId,
-    message,
-});
+
+/**
+ * @param {object} card
+ * @param {string} card.id
+ * @param {string} card.content
+ * @param {string} card.collectionId
+ * */
+export const createAddCard = (card) => ({
+  type: ADD_CARD,
+  payload: card
+})

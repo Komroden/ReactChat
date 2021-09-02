@@ -1,16 +1,12 @@
-import React, { useParams, useState } from 'react';
-import { ChatList } from "../../components/ChatList"
-import { MessageList } from "../../components/MessageList"
+import React from 'react';
+import {CreateCollectionForm} from "../../components/ChatItem";
+import {CollectionList} from "../../components/ChatList";
 
-
-export const Chats = (props) => {
-
-
-    return (
-        <div>
-
-            <MessageList />
-            <ChatList />
-        </div>
-    );
+export const CollectionsPage = (props) => {
+  return (
+    <div>
+      <CreateCollectionForm/>
+      <CollectionList list={[{id: '1', title: '1'}]}/>
+    </div>
+  );
 };

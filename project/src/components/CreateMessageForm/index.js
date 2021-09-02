@@ -1,8 +1,9 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import {TextField, Button} from '@material-ui/core';
 import {useSimpleForm} from "../../hooks/useSimpleForm";
-import {collectionsConnect} from "../../connects/collections";
+import {cardsConnect} from "../../connects/messages";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,34 +14,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const CreateCollectionFormRender = ({addCollection}) => {
+export const CreateCardFormRender = ({collectionId, addCards}) => {
   const classes = useStyles();
   const {setFieldValue, getFieldValue, resetForm} = useSimpleForm({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const collection = {
+    const card = {
+      collectionId,
       id: Date.now().toString(),
-      title: getFieldValue('title')
+      content: getFieldValue('content')
     }
-    addCollection(collection)
+
+    addCards(card);
 
     resetForm();
   }
-
   return (
     <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
       <TextField
-        name='title'
-        value={getFieldValue('title')}
+        name='content'
+        value={getFieldValue('content')}
         onChange={(event) => {
-          setFieldValue('title', event.target.value);
+          setFieldValue('content', event.target.value);
         }}
-        label="Title" />
+        label="Content" />
       <Button type="submit">Save</Button>
     </form>
   );
 };
 
-export const CreateCollectionForm = collectionsConnect(CreateCollectionFormRender);
+CreateCardFormRender.propTypes  = {
+  collectionId: propTypes.string.isRequired,
+}
+
+export const CreateCardForm = cardsConnect(CreateCardFormRender);

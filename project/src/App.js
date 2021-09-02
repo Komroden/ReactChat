@@ -2,8 +2,8 @@ import { Header } from "./components/Header";
 import { Route, Switch } from 'react-router-dom';
 import { Home } from "./pages/Home";
 import { Profile } from "./pages/Profile";
-import { Chats } from "./pages/Chats";
-import { Posts } from "./pages/Posts";
+import { CollectionsPage } from "./pages/Chats";
+import { CardPage } from "./pages/Message";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
@@ -19,7 +19,10 @@ export const App = () => {
             <Home />
           </Route>
           <Route path="/chats">
-            <Chats />
+            <CollectionsPage />
+          </Route>
+          <Route path='/cards/:collectionId'>
+           <CardPage/>
           </Route>
           <Route exact path="/profile">
             <Profile />
