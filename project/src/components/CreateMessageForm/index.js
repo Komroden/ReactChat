@@ -14,20 +14,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const CreateMessageFormRender = ({chatId, addMessages}) => {
+export const CreateMessageFormRender = ({chatId, addMessages,botMessages}) => {
   const classes = useStyles();
   const {setFieldValue, getFieldValue, resetForm} = useSimpleForm({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const messageBot={
+      chatId,
+      author:"Bot",
+      id: Date.now().toString(),
+      content: "Hello!"
+    }
 
     const message = {
       chatId,
+      author:"Kirill",
       id: Date.now().toString(),
       content: getFieldValue('content')
     }
 
     addMessages(message);
+    botMessages(messageBot)
 
     resetForm();
   }

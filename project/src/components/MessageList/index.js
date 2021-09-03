@@ -8,7 +8,7 @@ export const MessageListRender = ({messages, ...rest}) => {
   return (
     <div>
       {
-        messages?.map(({content, id}) => <li key={id}>{content}</li>)
+        messages?.map(({content,author, id}) => <div key={id}>{author}-{content}</div>)
       }
     </div>
   );
