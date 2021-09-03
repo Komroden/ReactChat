@@ -1,30 +1,36 @@
-import { ADD_MESSAGE } from "./actions";
+import {ADD_MESSAGE} from "./actions";
+
 
 const initialState = {
-    // to be stored like this {[chatId]: [{id, text, author}]}
-    messageList: {},
-};
+  messages: {},
+}
+
 
 export const messageReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case ADD_MESSAGE: {
-            const currentList = state.messageList[action.chatId] || [];
-            return {
-                ...state,
-                messageList: {
-                    ...state.messageList,
-                    [action.chatId]: [
-                        ...currentList,
-                        {
-                            ...action.message,
-                            id: `${action.chatId}${currentList.length}`,
-                        },
-                    ],
-                },
-            };
+  
+  switch (action.type) {
+    case ADD_MESSAGE: {
+      const {chatId} = action.payload;
+
+      if (state.messages.hasOwnProperty(chatId)) {
+        state.messages[chatId] = [
+          ...state.messages[chatId],
+          action.payload,
+        ]
+      } else {
+        state.messages[chatId] = [action.payload];
+      }
+
+      return  {
+        messages: {
+          ...state.messages,
         }
-        default:
-            return state;
+      }
     }
-};
+    default: {
+      return state;
+    }
+  }
+
+}
 
