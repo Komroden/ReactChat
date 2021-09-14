@@ -1,4 +1,4 @@
-export const getComments = (state) => state.comments;
+export const getComments = (state) => state.applications;
 
 export const getCommentsLoading =(state) => getComments(state).isLoading;
 

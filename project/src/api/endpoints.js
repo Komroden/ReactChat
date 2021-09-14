@@ -1,6 +1,6 @@
-export const LINK = 'https://jsonplaceholder.typicode.com';
+export const ENDPOINT = 'https://jsonplaceholder.typicode.com';
 
-export const LINKS = {
+export const ENDPOINTS = {
   posts: '/posts',
   postById: '/posts/:postId',
   comments: '/comments?postId=:postId'

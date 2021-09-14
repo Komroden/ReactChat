@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 export const CreateMessageFormRender = ({chatId, addMessages,botMessages}) => {
   const classes = useStyles();
   const {setFieldValue, getFieldValue, resetForm} = useSimpleForm({});
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,7 +37,6 @@ export const CreateMessageFormRender = ({chatId, addMessages,botMessages}) => {
 
     addMessages(message);
     botMessages(messageBot)
-
     resetForm();
   }
   return (

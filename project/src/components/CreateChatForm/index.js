@@ -4,6 +4,7 @@ import {TextField, Button} from '@material-ui/core';
 import {useSimpleForm} from "../../hooks/useSimpleForm";
 import {chatsConnect} from "../../connects/chats";
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -17,8 +18,9 @@ export const CreateChatFormRender = ({addChat}) => {
   const classes = useStyles();
   const {setFieldValue, getFieldValue, resetForm} = useSimpleForm({});
 
-  const handleSubmit = (event) => {
+  const handleSubmit =  (event) => {
     event.preventDefault();
+
 
     const Chat = {
       id: Date.now().toString(),
