@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const ApplicationsItem = ({postId, id, name, email, body}) => {
+export const CommentItem = ({postId, id, name, email, body}) => {
     return (
         <div>
             <h6>postId:{postId}</h6>

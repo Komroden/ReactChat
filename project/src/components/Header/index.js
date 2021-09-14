@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import {userApi} from "../../api/request";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const Header = (props) => {
     const classes = useStyles();
+
 
     return (
         <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
@@ -54,7 +56,22 @@ export const Header = (props) => {
             >
                 Chats
             </Link>
+            <Link
+                component={RouterLink}
+                color="inherit"
+                noWrap
+                key=""
+                variant="body2"
+                to="/comments"
+                className={classes.toolbarLink}
+            >
+                Applications
+            </Link>
 
+            <Link
+            >
+                <button onClick={userApi.logout}>logout</button>
+            </Link>
         </Toolbar>
     );
 }

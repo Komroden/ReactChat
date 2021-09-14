@@ -1,7 +1,7 @@
 import {ADD_CHAT, REMOVE_CHAT} from "./index";
 
 
-const initialState = {
+export const initialState = {
   chats: [],
 }
 

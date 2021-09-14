@@ -1,24 +1,23 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
-import {ApplicationsList} from "../../components/ApplicationsList";
-import {ENDPOINT, ENDPOINTS} from "../../api";
+import {CommentList} from "../../components/CommentList";
 import {useDispatch, useSelector} from "react-redux";
-import {applicationsSelectors, getApplicationsAction} from "../../store/applications";
+import {commentsSelectors, getCommentsAction} from "../../store/comments";
 
 
-export const Applications = (props) => {
+export const Comments = (props) => {
     const {postId} = useParams();
-
-    const comments = useSelector(applicationsSelectors.getApplicationsData)
-    const error = useSelector(applicationsSelectors.getApplicationsError)
-    const isLoading = useSelector(applicationsSelectors.getApplicationsLoading)
-    const dispatch = useDispatch();
-
+    const comments = useSelector(commentsSelectors.getCommentsData)
+  const error = useSelector(commentsSelectors.getCommentsError)
+  const isLoading = useSelector(commentsSelectors.getCommentsLoading)
+  const dispatch = useDispatch();
 
 
-    useEffect(() => {
-        dispatch(getApplicationsAction(postId));
-    }, [])
+
+  useEffect(() => {
+    dispatch(getCommentsAction(postId));
+  }, [])
+
 
 
 
@@ -39,8 +38,8 @@ export const Applications = (props) => {
                 </div>
             }
             {
-                comments &&
-                <ApplicationsList comments={comments}/>
+                comments && 
+                <CommentList comments={comments} />
             }
         </div>
     );

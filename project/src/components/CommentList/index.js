@@ -1,12 +1,12 @@
 import React from 'react';
-import {ApplicationsItem} from "../ApplicationsItem";
+import {CommentItem} from "../CommentItem";
 
 
 
-export const ApplicationsList = ({comments}) => {
+export const CommentList = ({comments}) => {
     return (
         <div>
-            {comments.map((comment) => <ApplicationsItem key={comment.id} {...comment}/>)}
+            {comments.map((comment) => <CommentItem key={comment.id} {...comment}/>)}
         </div>
     );
 };

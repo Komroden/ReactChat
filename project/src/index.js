@@ -5,14 +5,21 @@ import { BrowserRouter } from 'react-router-dom';
 import {
   App
 } from './App';
+import {store} from "./store";
+import {Provider} from "react-redux";
+import {AppWrapper} from "./AppWrapper";
+
 
 
 
 ReactDOM.render(<
   React.StrictMode >
+
   <BrowserRouter>
-    <App />
+
+    <AppWrapper />
   </BrowserRouter>
+
 </React.StrictMode>,
   document.getElementById("root")
 );
