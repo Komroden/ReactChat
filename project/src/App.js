@@ -16,7 +16,7 @@ export const App = () => {
         <Header />
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home      />
           </Route>
           <Route path="/chats">
             <ChatsPage />
