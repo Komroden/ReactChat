@@ -11,7 +11,7 @@ import { store } from "./store";
 
 export const App = () => {
   return (
-    <div   >
+    <div >
       <Provider store={store}>
         <Header />
         <Switch>
