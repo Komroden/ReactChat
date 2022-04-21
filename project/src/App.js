@@ -22,7 +22,7 @@ export const App = () => {
             <ChatsPage />
           </Route>
           <Route path='/cards/:chatId'>
-           <MessagePage                       />
+           <MessagePage                            />
           </Route>
           <Route exact path="/profile">
             <Profile />
